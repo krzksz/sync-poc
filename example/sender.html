@@ -4,6 +4,16 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <title>Micronity Test Page</title>
+    <style>
+      html {
+        background: lightgray;
+      }
+
+      #source {
+        background: white;
+        overflow: auto;
+      }
+    </style>
   </head>
   <body>
     <div id="source">
@@ -33,5 +43,8 @@
       <div contenteditable>ContentEditable</div>
     </div>
     <script src="../dist/sender.umd.js"></script>
+    <script>
+      syncPoc.observe(document.querySelector("#source"));
+    </script>
   </body>
 </html>

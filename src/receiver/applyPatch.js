@@ -1,4 +1,4 @@
-import DiffMatchPatch from "./diff_match_patch.js";
+import DiffMatchPatch from "./diff_match_patch.js.js";
 
 const dmp = new DiffMatchPatch();
 

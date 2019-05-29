@@ -4,6 +4,7 @@ const cursor = document.querySelector("#cursor");
 
 const eventsHistory = {
   focusin: null,
+  resize: null,
   select: {},
   change: {},
 };
@@ -47,16 +48,20 @@ const applyEvent = (event, target) => {
       eventsHistory.select[event.selector] = event;
       break;
     case "mousemove":
-      console.log(event.x, event.y);
       cursor.style.transform = `translate3d(${event.x}px, ${event.y}px, 0)`;
       break;
     case "scroll":
-      console.log(event.x, event.y);
       window.scroll({
         behavior: "smooth",
         top: event.y,
         left: event.x,
       });
+      break;
+
+    case "resize":
+      target.style.width = event.w + "px";
+      target.style.height = event.h + "px";
+      eventsHistory.resize = event;
       break;
   }
 };
@@ -64,6 +69,10 @@ const applyEvent = (event, target) => {
 const redoEvents = (events, target) => {
   if (events.focusin) {
     applyEvent(events.focusin, target);
+  }
+
+  if (events.resize) {
+    applyEvent(events.resize, target);
   }
 
   Object.values(eventsHistory.change).forEach(event => {

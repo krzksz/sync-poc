@@ -5,6 +5,15 @@
     <meta name="viewport" content="width=device-width" />
     <title>Target page</title>
     <style>
+      html {
+        background: lightgray;
+      }
+
+      #target {
+        background: white;
+        overflow: auto;
+      }
+
       #cursor {
         width: 13px;
         height: 20px;
@@ -19,6 +28,9 @@
   <body>
     <div id="target"></div>
     <div id="cursor"></div>
-    <script src="../dist/reciever.umd.js"></script>
+    <script src="../dist/receiver.umd.js"></script>
+    <script>
+      syncPoc.listen(document.querySelector("#target"));
+    </script>
   </body>
 </html>

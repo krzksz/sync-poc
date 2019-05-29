@@ -10,11 +10,12 @@ export default (element, callback) => {
 
     if (!isScheduled) {
       setTimeout(() => {
+        const rectObject = element.getBoundingClientRect();
         callback({
           event: {
             type: "resize",
-            w: windowDimensions.w,
-            h: windowDimensions.h,
+            w: rectObject.width,
+            h: rectObject.height,
           },
         });
         isScheduled = false;

@@ -5,7 +5,7 @@
   "author": "Mateusz Krzeszowiak <mateusz.krzeszowiak@gmail.com",
   "license": "MIT",
   "scripts": {
-    "build": "microbundle src/sender/sender.js -o dist/sender.js && microbundle src/reciever/reciever.ts -o dist/reciever.js",
+    "build": "microbundle src/sender/sender.js -o dist/sender.js && microbundle src/reciever/reciever.js -o dist/reciever.js",
     "dev": "microbundle -w"
   },
   "files": [

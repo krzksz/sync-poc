@@ -1,1 +1,1 @@
-export default value => value.replace(/[^\s]/gm, "•");
+export default value => (value ? value.replace(/[^\s]/gm, "•") : "");
